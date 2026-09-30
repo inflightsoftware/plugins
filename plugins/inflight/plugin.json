@@ -38,7 +38,7 @@
         "defaultPrompt": [
           "Share this prototype with Inflight for review",
           "What feedback came in on my Inflight previews?",
-          "Mark the next steps I finished as done in Inflight"
+          "Implement the feedback that came in on my Inflight prototype"
         ],
         "brandColor": "#1C8AF8",
         "brandColorDark": "#6EA8FF",
