@@ -96,7 +96,8 @@
           ]
         },
         "commerce": false,
-        "commerce_description": "Inflight does not sell anything through the plugin. Users sign in to their existing Inflight account; billing is managed on inflight.co."
+        "commerce_description": "Inflight does not sell anything through the plugin. Users sign in to their existing Inflight account; billing is managed on inflight.co.",
+        "demo_recording_url": "https://youtu.be/0DlgXmJMZ8s"
       },
       "publication": {
         "countries": [],
