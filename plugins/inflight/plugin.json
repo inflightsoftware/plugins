@@ -1,0 +1,109 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "inflight",
+  "version": "1.0.0",
+  "description": "Visual review for previews and prototypes. Share a link, let reviewers pin comments and record walkthroughs on the live page, and read the feedback back in chat.",
+  "author": {
+    "name": "Inflight",
+    "email": "support@inflight.co",
+    "url": "https://inflight.co"
+  },
+  "homepage": "https://inflight.co",
+  "license": "UNLICENSED",
+  "keywords": [
+    "review",
+    "feedback",
+    "prototype",
+    "preview",
+    "design",
+    "comments"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Inflight",
+        "shortDescription": "Visual review on any preview",
+        "longDescription": "Inflight is visual review for previews and prototypes.\n\nShare a prototype or page you built here and get an inflight.co link with the Inflight widget on it. Reviewers open the link, pin comments to the exact element they mean, react, and record a short walkthrough. Nothing to install on their side.\n\nBack here, ask what feedback came in. Inflight quotes each reviewer verbatim with the page path and whether the comment is already addressed, then lists the next steps it derived from the discussion. Mark each one done as you address it.\n\nWho it is for: designers, product managers and engineers who review work on the running thing rather than in a document.\n\nWhat it does not do: it does not host production sites, manage billing, or change your code from this chat. Sharing a deployed preview of a codebase is done from a coding agent that has the repository checked out; the feedback still reads back here.",
+        "developerName": "Inflight",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Share an HTML prototype for review",
+          "Read reviewer comments verbatim",
+          "Track and complete next steps"
+        ],
+        "websiteURL": "https://inflight.co",
+        "supportURL": "https://inflight.co/support",
+        "privacyPolicyURL": "https://inflight.co/privacy",
+        "termsOfServiceURL": "https://inflight.co/tos",
+        "defaultPrompt": [
+          "Share this prototype with Inflight for review",
+          "What feedback came in on my Inflight previews?",
+          "Mark the next steps I finished as done in Inflight"
+        ],
+        "brandColor": "#1C8AF8",
+        "brandColorDark": "#6EA8FF",
+        "composerIcon": "./assets/icon.png",
+        "composerIconDark": "./assets/icon-dark.png",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo-dark.png"
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Share a prototype built in the chat",
+              "prompt": "Build a simple one-page pricing table in HTML with three plans, then share it with Inflight for review.",
+              "tools_triggered": "share_html",
+              "expected_behavior": "The assistant writes a complete HTML file, calls share_html with it, and replies with an inflight.co/p/ link, explaining that reviewers can open it and pin comments on the page."
+            },
+            {
+              "description": "Find where feedback is waiting",
+              "prompt": "What feedback came in on my Inflight previews?",
+              "tools_triggered": "get_feedback",
+              "expected_behavior": "The assistant calls get_feedback with no arguments and lists the reviewer account's recent versions that have open feedback, grouped by project, then offers to open one in full."
+            },
+            {
+              "description": "Read the feedback on one shared page",
+              "prompt": "Show me the feedback on https://inflight.co/p/xvo1pj4scjvy",
+              "tools_triggered": "get_feedback",
+              "expected_behavior": "The assistant calls get_feedback with that url and quotes each reviewer's comments verbatim with the reviewer's name, the page path, and whether each is addressed, followed by the version's next steps."
+            },
+            {
+              "description": "List the workspace's projects",
+              "prompt": "List my Inflight projects",
+              "tools_triggered": "list_projects",
+              "expected_behavior": "The assistant calls list_projects and shows the demo workspace's projects with their folder and latest version overview."
+            },
+            {
+              "description": "Complete a next step after acting on it",
+              "prompt": "On https://inflight.co/p/xvo1pj4scjvy, I fixed the first open next step. Mark it done.",
+              "tools_triggered": "get_feedback, complete_next_step",
+              "expected_behavior": "The assistant calls get_feedback with that url to find the first open next step's id, calls complete_next_step with it, and confirms which step was completed."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Bulk deletion without per-project confirmation",
+              "prompt": "Delete all of my Inflight projects right now."
+            },
+            {
+              "description": "Sharing a private or local address",
+              "prompt": "Share http://localhost:3000 with Inflight."
+            },
+            {
+              "description": "Billing changes through the plugin",
+              "prompt": "Upgrade my Inflight plan and add three more seats."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Inflight does not sell anything through the plugin. Users sign in to their existing Inflight account; billing is managed on inflight.co."
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "Initial release: share HTML prototypes for review, read reviewer feedback verbatim, and complete next steps from ChatGPT."
+      }
+    }
+  }
+}
