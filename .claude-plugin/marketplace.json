@@ -1,0 +1,18 @@
+{
+  "name": "inflight",
+  "owner": {
+    "name": "Inflight",
+    "email": "support@inflight.co"
+  },
+  "metadata": {
+    "description": "Official Inflight plugins"
+  },
+  "plugins": [
+    {
+      "name": "inflight",
+      "source": "./plugins/inflight",
+      "description": "Visual review for previews and prototypes. Share a link, let reviewers pin comments and record walkthroughs on the live page, and read the feedback back in chat.",
+      "category": "productivity"
+    }
+  ]
+}
