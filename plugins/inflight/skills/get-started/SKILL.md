@@ -14,13 +14,13 @@ walkthrough. You read it all back here and act on it.
 1. Confirm the connection with `list_projects`. If it errors with an authentication
    problem, tell the user to sign in to Inflight when prompted and try again.
 2. Ask what they want to share first. Two kinds of work fit:
-   - A prototype or page built here: use the share-prototype skill.
+   - A prototype or page built here: share it with `share_html`.
    - A deployed preview of a codebase: that is shared from a coding agent with the
      repository checked out. Tell the user their coding agent can share it with the
      same Inflight plugin, and that the feedback still reads back here.
 3. Once something is shared, show the link and explain that reviewers need nothing
    installed: they open the link and comment on the page.
-4. When they want to know what came in, use the review-feedback skill.
+4. When they want to know what came in, call `get_feedback`.
 
 ## What Inflight is not
 

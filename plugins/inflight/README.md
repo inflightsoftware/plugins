@@ -25,11 +25,7 @@ The plugin connects to the hosted Inflight MCP server at `https://mcp.inflight.c
 On first use your agent opens a browser sign-in; approve it with your Inflight account
 (create one free at [inflight.co](https://inflight.co)).
 
-Skills included:
-
-- `get-started` — first share and first read of feedback
-- `share-prototype` — share an HTML prototype for review
-- `review-feedback` — read and act on reviewer feedback
+The Codex/ChatGPT package also carries a `get-started` onboarding skill.
 
 ## Example prompts
 
