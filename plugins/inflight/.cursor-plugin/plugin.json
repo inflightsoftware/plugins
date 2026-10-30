@@ -1,6 +1,6 @@
 {
   "name": "inflight",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Visual review for previews and prototypes. Share a link, let reviewers pin comments and record walkthroughs on the live page, and read the feedback back in chat.",
   "author": {
     "name": "Inflight",
@@ -10,10 +10,18 @@
   "homepage": "https://inflight.co",
   "repository": "https://github.com/inflightsoftware/plugins",
   "license": "MIT",
-  "keywords": ["review", "feedback", "prototype", "preview", "design", "comments"],
+  "keywords": [
+    "review",
+    "feedback",
+    "prototype",
+    "preview",
+    "design",
+    "comments"
+  ],
   "mcpServers": {
     "inflight": {
       "url": "https://mcp.inflight.co/mcp"
     }
-  }
+  },
+  "skills": []
 }
